@@ -17,8 +17,9 @@ if response.status_code == 200:
     data = response.json()
     df = pd.DataFrame(data['data'])
     epoch_time = data['timestamp']
-
-    st.write("Timestamp: %s" % epoch_time)
+    dt = datetime.datetime.fromtimestamp(epoch_time / 1000)
+    date_str = dt.strftime("%Y-%m-%d %H:%M:%S")
+    st.write("Timestamp: %s" % date_str)
     st.dataframe(df)
     # Process the JSON data here
 else:
