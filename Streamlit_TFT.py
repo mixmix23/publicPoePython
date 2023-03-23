@@ -10,7 +10,7 @@ if response.status_code == 200:
     print(data['timestamp'])
     for item in data['data']:
         print(item)
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data['data'])
     st.dataframe(df)
     # Process the JSON data here
 else:
