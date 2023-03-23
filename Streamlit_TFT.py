@@ -4,7 +4,7 @@ import pandas as pd
 import datetime
 import pytz
 
-select_tft_json = st.sidebar.selectbox(
+select_tft_json = st.sidebar.radio(
     "Select JSON",
     ("bulk-beasts", "bulk-breach", "bulk-compasses", "bulk-expedition", "bulk-heist", "bulk-invitation", "bulk-legion-jewels",
      "bulk-lifeforce", "bulk-maps", "bulk-sets", "bulk-simulacrum", "bulk-stacked-deck", "bulk-vessel", "bulk-watcher's-eye",
