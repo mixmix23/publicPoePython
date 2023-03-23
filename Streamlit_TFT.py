@@ -1,6 +1,7 @@
 import requests
 import streamlit as st
 import pandas as pd
+import datetime
 
 select_tft_json = st.sidebar.selectbox(
     "Select JSON",
@@ -15,7 +16,9 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()
     df = pd.DataFrame(data['data'])
-    st.write(data['timestamp'])
+    epoch_time = data['timestamp']
+    real_time = real_time = datetime.datetime.fromtimestamp(epoch_time)
+    st.write("Timestamp: %s" % real_time)
     st.dataframe(df)
     # Process the JSON data here
 else:
