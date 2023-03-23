@@ -27,6 +27,7 @@ if response.status_code == 200:
 
     st.write("Timestamp: %s" % date_str)
     st.dataframe(df)
+    st.beta_set_data_frame_height(200)
 
 else:
     print(f"Failed to retrieve {url}. Status code: {response.status_code}")
