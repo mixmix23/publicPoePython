@@ -2,7 +2,6 @@ import requests
 import streamlit as st
 import pandas as pd
 
-
 select_tft_json = st.sidebar.selectbox(
     "Select JSON",
     ("bulk-beasts", "bulk-breach", "bulk-compasses", "bulk-expedition", "bulk-heist", "bulk-invitation", "bulk-legion-jewels",
@@ -15,10 +14,8 @@ response = requests.get(url)
 
 if response.status_code == 200:
     data = response.json()
-    print(data['timestamp'])
-    for item in data['data']:
-        print(item)
     df = pd.DataFrame(data['data'])
+    st.write(data['timestamp'])
     st.dataframe(df)
     # Process the JSON data here
 else:
