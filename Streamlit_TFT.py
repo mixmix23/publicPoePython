@@ -4,6 +4,8 @@ import pandas as pd
 import datetime
 import pytz
 
+st.set_page_config(page_title="TFT JSON")
+
 select_tft_json = st.sidebar.radio(
     "Select JSON",
     ("bulk-beasts", "bulk-breach", "bulk-compasses", "bulk-expedition", "bulk-heist", "bulk-invitation", "bulk-legion-jewels",
