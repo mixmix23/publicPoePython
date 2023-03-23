@@ -27,7 +27,7 @@ if response.status_code == 200:
     epoch_time = data['timestamp']
     dt_utc = datetime.datetime.fromtimestamp(epoch_time / 1000, utc_timezone)
     dt_central = dt_utc.astimezone(central_timezone)
-    date_str = dt_central.strftime("%Y-%m-%d %H:%M:%S %Z%z")
+    date_str = dt_central.strftime("%Y-%m-%d %H:%M:%S %Z")
 
     st.write("Timestamp: %s" % date_str)
     st.dataframe(df)
