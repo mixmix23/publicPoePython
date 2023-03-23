@@ -2,7 +2,14 @@ import requests
 import streamlit as st
 import pandas as pd
 
-url = "https://raw.githubusercontent.com/The-Forbidden-Trove/tft-data-prices/master/lsc/bulk-beasts.json"
+
+select_tft_json = st.sidebar.selectbox(
+    "Select JSON",
+    ("bulk-beasts", "bulk-breach", "bulk-compasses")
+)
+
+
+url = f"https://raw.githubusercontent.com/The-Forbidden-Trove/tft-data-prices/master/lsc/{select_tft_json}.json"
 response = requests.get(url)
 
 if response.status_code == 200:
