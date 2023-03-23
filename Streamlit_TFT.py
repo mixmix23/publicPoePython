@@ -26,7 +26,7 @@ if response.status_code == 200:
     date_str = dt_central.strftime("%Y-%m-%d %H:%M:%S %Z")
 
     st.write("Timestamp: %s" % date_str)
-    st.dataframe(df)
+    st.table(df)
 
 else:
     print(f"Failed to retrieve {url}. Status code: {response.status_code}")
