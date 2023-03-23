@@ -18,10 +18,6 @@ if response.status_code == 200:
     data = response.json()
     df = pd.DataFrame(data['data'])
 
-    # epoch_time = data['timestamp']
-    # dt = datetime.datetime.fromtimestamp(epoch_time / 1000)
-    # date_str = dt.strftime("%Y-%m-%d %H:%M:%S")
-
     utc_timezone = pytz.timezone('UTC')
     central_timezone = pytz.timezone('US/Central')
     epoch_time = data['timestamp']
@@ -31,6 +27,6 @@ if response.status_code == 200:
 
     st.write("Timestamp: %s" % date_str)
     st.dataframe(df)
-    # Process the JSON data here
+
 else:
     print(f"Failed to retrieve {url}. Status code: {response.status_code}")
